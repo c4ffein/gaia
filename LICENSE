@@ -1,5 +1,6 @@
 This repository is licensed under multiple licenses:
-- MIT for any file in the gaia-blog directory
+- MIT for any file in the gaia-blog directory. Any original license is kept under the licenses directory
 - AGPLv3 for every other file
 
 Corresponding LICENSE files can be found in every top-level directory.
+If original licenses are present, they are kept in the licenses subdirectory.

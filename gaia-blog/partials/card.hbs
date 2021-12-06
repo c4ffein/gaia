@@ -1,0 +1,49 @@
+<article class="ppt-card {{#unless feature_image}}no-picture{{/unless}}">
+  <div class="bg">
+    {{#if feature_image}}
+      <style>
+        #featured-bg-{{id}} {
+          background-image: url({{img_url feature_image size='l'}});
+        }
+
+        @media(max-width: 768px) {
+          #featured-bg-{{id}} {
+            background-image: url({{img_url feature_image size='m'}});
+          }
+        }
+      </style>
+      <div id="featured-bg-{{id}}"></div>
+    {{/if}}
+
+    {{#unless feature_image}}
+      <style>
+        #featured-bg-{{id}} {
+          background-image: url("/assets/images/placeholder-card.jpg");
+        }
+      </style>
+      <div id="featured-bg-{{id}}"></div>
+    {{/unless}}
+  </div>
+  <!-- <div class="m-featured-article__meta">
+    <a href="{{primary_author.url}}" class="m-featured-article__author js-tooltip" aria-label="{{primary_author.name}}" data-tippy-content="{{t "Posted by"}} {{primary_author.name}} {{authors autolink="false" from="2" prefix=(t "Among with") separator=" , "}}">
+      {{#if primary_author.profile_image}}
+        <div style="background-image: url({{img_url primary_author.profile_image size="xs"}});"></div>
+      {{else}}
+        <div style="background-image: url({{asset "images/default-avatar-square-small.jpg"}});"></div>
+      {{/if}}
+    </a>
+  </div> -->
+  <a href="{{url}}" class="content px-6 py-6">
+    <h2 class="t-20 t-bold mb-4" title="{{title}}">
+      {{title}}
+    </h2>
+    {{#if excerpt}}
+      <p class="t-18">{{excerpt characters="140"}} [...]</p>
+    {{/if}}
+    <div> <br />
+      <span>{{date published_at timeago="true"}}</span>
+      <span>&bull;</span>
+      <span>{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+    </div>
+  </a>
+</article>

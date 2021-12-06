@@ -1,0 +1,386 @@
+/* Ecrire ici le css custom, qui a été include dans default.hbs a la ligne Styles and Scripts */
+
+/*-----------------------CUSTOM GOOGLE FONT--------------------*/
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.main-nav a,
+.subscribe-button,
+.page-title,
+.post-meta,
+.read-next-story .post:before,
+.pagination,
+.site-footer {
+  font-family: "Inter", sans-serif!important;
+}
+
+/* This is necessary to not mess up share icons at bottom of posts */
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*-----------------------CARD----------------------------------*/
+
+.ppt-card {
+  position: relative;
+  overflow: hidden; /* Needed for blur */
+  color: white;
+  padding: 10px;
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 10%);
+  box-sizing: border-box;
+  margin: 20px 10px 20px 10px;
+  width: calc(33.33333% - 60px);
+  border-radius: 5px;
+}
+.ppt-card .bg {
+  filter: brightness(70%);
+  -webkit-filter: brightness(70%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: opacity 0.25s ease-in-out;
+
+  /* règles de feature-article picture */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.ppt-card .bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.2;
+  background-color: #1155aa;
+}
+
+/* Added */
+.ppt-card .bg div {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+}
+
+.ppt-card .content {
+  position: relative;
+  z-index: 1000;
+  transition: opacity 0.25s ease-in-out;
+  display: block;
+}
+.ppt-card:hover .bg {
+  opacity: 0;
+}
+.ppt-card:hover .content {
+  color: #1155aa;
+}
+
+/*-----------------------------CARD-----------------------------------*/
+
+/*-----------------------------BUTTON----------------------------------*/
+
+.no-select,
+.btn,
+.npt,
+.lnpt {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.btn {
+  position: relative;
+  font-weight: bold;
+  transition: 0.3s;
+  border-radius: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.btn[disabled] {
+  cursor: not-allowed;
+}
+
+.btn:focus::before {
+  content: " ";
+  position: absolute;
+  z-index: 3;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 12px;
+  border: 2px solid #1155aa;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn.primary {
+  background-color: #1155aa;
+  color: white;
+  text-decoration: none;
+}
+
+.btn.primary:focus::before {
+  border: 2px solid #1155aa;
+}
+
+.btn.primary[disabled] {
+  background-color: #eee;
+  color: #666;
+  text-decoration: none;
+}
+
+.btn.primary:not([disabled]):hover {
+  background-color: #0c3e7c;
+  color: white;
+}
+
+.btn.primary.reversed {
+  background-color: #1155aa;
+  color: white;
+  text-decoration: none;
+}
+
+.btn.primary.reversed:focus::before {
+  border: 2px solid white;
+}
+
+.btn.primary.reversed[disabled] {
+  background-color: #eee;
+  color: #666;
+  text-decoration: none;
+}
+
+.btn.primary.reversed:not([disabled]):hover {
+  background-color: white;
+  color: #1155aa;
+}
+
+.btn.primary.outline {
+  background-color: white;
+  color: #1155aa;
+  border: 2px solid #1155aa;
+  padding: 12px 16px;
+}
+
+.btn.primary.outline:hover:not([disabled]) {
+  background-color: #1155aa;
+  color: white;
+}
+
+.btn.primary.outline:focus {
+  padding: 12px 16px;
+  background-color: #1155aa;
+  color: white;
+}
+
+.btn.primary.small.outline:focus {
+  padding: 12px 16px;
+  background-color: #1155aa;
+  color: white;
+}
+
+.btn.primary.outline:focus:before {
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+}
+
+.btn.warning {
+  background-color: #ffaa00;
+  color: white;
+  text-decoration: none;
+}
+
+.btn.warning:focus::before {
+  border: 2px solid #ffaa00;
+}
+
+.btn.warning[disabled] {
+  background-color: #eee;
+  color: #666;
+  text-decoration: none;
+}
+
+.btn.warning:not([disabled]):hover {
+  background-color: #cc8800;
+  color: white;
+}
+
+.btn.warning.outline {
+  background-color: white;
+  color: #ffaa00;
+  border: 2px solid #ffaa00;
+  padding: 12px 16px;
+}
+
+.btn.warning.outline:hover:not([disabled]) {
+  background-color: #ffaa00;
+  color: white;
+}
+
+.btn.warning.outline:focus {
+  padding: 12px 16px;
+  background-color: #ffaa00;
+  color: white;
+}
+
+.btn.warning.small.outline:focus {
+  padding: 12px 16px;
+  background-color: #ffaa00;
+  color: white;
+}
+
+.btn.warning.outline:focus:before {
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+}
+
+.btn.error {
+  background-color: #cc0000;
+  color: white;
+  text-decoration: none;
+}
+
+.btn.error:focus::before {
+  border: 2px solid #cc0000;
+}
+
+.btn.error[disabled] {
+  background-color: #eee;
+  color: #666;
+  text-decoration: none;
+}
+
+.btn.error:not([disabled]):hover {
+  background-color: #990000;
+  color: white;
+}
+
+.btn.error.outline {
+  background-color: white;
+  color: #cc0000;
+  border: 2px solid #cc0000;
+  padding: 12px 16px;
+}
+
+.btn.error.outline:hover:not([disabled]) {
+  background-color: #cc0000;
+  color: white;
+}
+
+.btn.error.outline:focus {
+  padding: 12px 16px;
+  background-color: #cc0000;
+  color: white;
+}
+
+.btn.error.small.outline:focus {
+  padding: 12px 16px;
+  background-color: #cc0000;
+  color: white;
+}
+
+.btn.error.outline:focus:before {
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+}
+
+.btn.white {
+  background-color: #1155aa;
+  color: white;
+  text-decoration: none;
+}
+
+.btn.white:focus::before {
+  border: 2px solid #1155aa;
+}
+
+.btn.white[disabled] {
+  background-color: #eee;
+  color: #666;
+  text-decoration: none;
+}
+
+.btn.white:not([disabled]):hover {
+  background-color: #0c3e7c;
+  color: white;
+}
+
+.btn.white.outline {
+  background-color: white;
+  color: #1155aa;
+  border: 2px solid #1155aa;
+  padding: 12px 16px;
+}
+
+.btn.white.outline:hover:not([disabled]) {
+  background-color: #1155aa;
+  color: white;
+}
+
+.btn.white.outline:focus {
+  padding: 12px 16px;
+  background-color: #1155aa;
+  color: white;
+}
+
+.btn.white.small.outline:focus {
+  padding: 12px 16px;
+  background-color: #1155aa;
+  color: white;
+}
+
+.btn.white.outline:focus:before {
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+}
+
+.btn.small {
+  padding: 12px 16px;
+}
+
+.btn.outline.small {
+  padding: 8px 12px;
+}
+
+/*------------------------------------------------------BUTTON-------------------------*/
