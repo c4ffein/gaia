@@ -15,8 +15,10 @@ Original licenses are kept in the licenses directory.
 
 ## License
 
-Copyright (c) 2019-2020 Eduardo Gómez. Released under the [MIT license](https://github.com/eddiesigner/liebling/blob/master/LICENSE).
-Copyright (c) 2021 Clément Debatisse. Released under the [MIT license]https://github.com/clementdebatisse/gaia-dev-ghost/blob/main/LICENSE).
+Copyright (c) 2019-2020 Eduardo Gómez. Released under the [MIT license](https://github.com/eddiesigner/liebling/blob/master/LICENSE).  
+Copyright (c) 2021 Clément Debatisse. Released under the [MIT license](https://github.com/clementdebatisse/gaia-dev-ghost/blob/main/LICENSE).  
+Copyright (c) 2021 c4ffein. Released under the [MIT license](https://github.com/c4ffein/gaia/blob/main/gaia-blog/LICENSE).
+
 
 ## Credits
 

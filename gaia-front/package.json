@@ -1,0 +1,54 @@
+{
+  "name": "gaia-front",
+  "version": "0.1.1",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "start": "npm run build",
+    "get-theme": "maz get-theme -c maz-ui.config.js"
+  },
+  "dependencies": {
+    "babel-plugin-component": "^1.1.1",
+    "core-js": "^3.15.1",
+    "dompurify": "^2.2.9",
+    "marked": "^2.1.2",
+    "maz-ui": "^2.3.11",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "vue": "^2.6.14",
+    "vue-cal": "^3.10.1",
+    "vue-router": "^3.5.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.15",
+    "@vue/cli-plugin-eslint": "~4.5.15",
+    "@vue/cli-service": "^4.5.15",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^7.12.1",
+    "sass": "^1.35.1",
+    "sass-loader": "^10.2.0",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

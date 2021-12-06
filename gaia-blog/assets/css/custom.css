@@ -97,7 +97,18 @@ h6,
 .ppt-card:hover .content {
   color: #1155aa;
 }
-
+@media (max-width: 60rem) {
+  .ppt-card {
+    width: calc(50% - 40px);
+    margin: 20px 10px 20px 10px;
+  }
+}
+@media (max-width: 48rem) {
+  .ppt-card {
+    width: calc(100% - 20px);
+    margin: 20px 0 20px 0;
+  }
+}
 /*-----------------------------CARD-----------------------------------*/
 
 /*-----------------------------BUTTON----------------------------------*/

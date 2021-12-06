@@ -1,0 +1,29 @@
+# Monorepo deploy voodoo
+[submodule "gaia-front/src/api/libs/file-saver"]
+       path = src/libs/file-saver
+       url = https://github.com/c4ffein/1files-js.git
+       branch = file-saver
+[submodule "gaia-front/src/api/libs/object-helpers"]
+       path = src/libs/object-helpers
+       url = https://github.com/c4ffein/1files-js.git
+       branch = object-helpers
+[submodule "gaia-front/src/api/libs/jwt-decode"]
+       path = src/libs/jwt-decode
+       url = https://github.com/c4ffein/1files-js.git
+       branch = jwt-decode
+[submodule "gaia-front/src/libs/pdfobject"]
+       path = src/libs/pdfobject
+       url = https://github.com/c4ffein/1files-js.git
+       branch = pdfobject
+[submodule "gaia-front/src/libs/smallbreeze"]
+       path = src/libs/smallbreeze
+       url = https://github.com/c4ffein/1files-js.git
+       branch = smallbreeze
+[submodule "gaia-front/src/libs/simple-drawing-board"]
+       path = src/libs/simple-drawing-board
+       url = https://github.com/c4ffein/1files-js.git
+       branch = simple-drawing-board
+[submodule "gaia-front/src/libs/maz-comps"]
+        path = src/libs/maz-comps
+        url = https://github.com/c4ffein/1files-js.git
+        branch = maz-comps
