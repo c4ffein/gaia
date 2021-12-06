@@ -7,6 +7,7 @@ These modifications include files compiled from [c4ffein](https://github.com/c4f
 - [smallbreeze.scss](https://github.com/c4ffein/1files-js/tree/master/smallbreeze/smallbreeze.scss)
 - [maz-comps.scss](https://github.com/c4ffein/1files-js/blob/master/maz-comps/maz-comps.scss)
 - [Pure HTML5/CSS demo of a card switching from a blurred image to a white background](https://gist.github.com/c4ffein/49cb223fa3e53fde53fbf46744ccc902)
+
 Which have been trimmed down to only include the css classes useful for this project.
 
 The [Liebling](https://github.com/eddiesigner/liebling) theme, the files from c4ffein, and the [gaia-dev-ghost](https://github.com/clementdebatisse/gaia-dev-ghost) repo from [Clement Debatisse](https://github.com/clementdebatisse) are all MIT licensed, and so are all files in this repository.
