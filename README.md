@@ -10,7 +10,7 @@ Vue.js frontend, see `Env` for configuration. Recommended to deploy using [Dokku
 - - All texts in the [amnyos-assets.js](gaia-front/src/assets/amnyos-assets.js) file are the property of [Amnyos](https://www.amnyos.com/), and the Gaïa logo paths were computed from the rasterized logo provided by them to build this site.
   - The Gaïa logo was also used for the [favicon.ico](gaia-front/public/favicon.ico).
   - Files in the [communication](gaia-front/public/communication) folder were provided by them for temporary purposes but are still kept there to stay accessible.
-  All rights reserved.
+  - All rights reserved.
 - Every file in the [fonts](gaia-front/src/assets/fonts) directory is [SIL Open Font License (OFL)](https://scripts.sil.org/OFL) licensed.
 - [Material icons](gaia-front/src/assets/material-person-18dp.svg) are [Apache](https://raw.githubusercontent.com/google/material-design-icons/master/LICENSE) licensed.
 - [Partners logos](gaia-front/src/assets/partners-logos) are the property of their respective owners, all rights reserved.
