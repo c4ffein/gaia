@@ -163,7 +163,7 @@ export default {
     isDeactivated() { return this.dS?.is_deactivated; },
     // TODO : Use <img src="data:," alt> instead
     pp() { return this.$api.files(this.dS?.profile_picture)?.b64 || whiteImgSrc; },
-    bpDefault() { return require('@/assets/wall-pictures-s/john-ko-0C6Ep1n77l8-unsplash.jpg'); },
+    bpDefault() { return require('@/assets/unsplash/wall-pictures-s/john-ko-0C6Ep1n77l8-unsplash.jpg'); },
     bp() { return this.dS ? this.$api.files(this.dS?.banner_picture)?.b64 || this.bpDefault : whiteImgSrc; },
     // Profile type
     structureTypeOptions() { return this.$api.partnerTypeNames().map((e, i) => ({ label: e, value: i })); },

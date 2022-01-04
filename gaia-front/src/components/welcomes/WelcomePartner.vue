@@ -15,7 +15,7 @@ import NeedAdvice from '../welcome-components/NeedAdvice.vue'
 
 
 export default {
-  name: 'WelcomeUser',
+  name: 'WelcomePartner',
   components: { CPDuo, NeedAdvice },
   data () {
     return {

@@ -1,18 +1,5 @@
 <template lang="pug">
 .welcome-container
-  //-div
-    .gaia-title-container.absolute
-      .gaia-title.t-white.t-bold
-        | Gaïa : vous accompagner vers l’emploi
-      //-
-        .gaia-title-buttons
-          div(v-if="iAmLogged")
-            button.btn.outline(style="margin-bottom: 10px;min-width: 232px;" @click="$router.push('/profile')")
-              | Accès à mon profil
-            button.btn.outline(style="margin-bottom: 10px;min-width: 232px;" @click="$router.push('/rdv')")
-              | Accès à mes rendez-vous
-
-  //- PartnersLogos(:height="70" style="margin: 30px;")
 
   .title.t-primary.t-center.t-bold(v-if="!iAmLogged")
     | Pour accéder à Gaïa indiquez le code postal de votre lieu de résidence
@@ -32,8 +19,7 @@
     .title.t-primary.t-center.t-bold Aucun partenaire disponible actuellement pour votre code postal.
 
   div(v-if="enabledSolutionsCategories.length !== 0")
-    .title.t-primary.t-center.t-bold.mx-7
-      | Découvrez l’offre d’accompagnement de nos partenaires et prenez un rendez-vous avec un conseiller
+    .title.t-primary.t-center.t-bold.mx-7 {{a.discover}}
     NeedAdvice(
       :solutionCategories="enabledSolutionsCategories"
       :selectedSolutionCategory="selectedSolutionCategory"
@@ -55,23 +41,17 @@
 import CPDuo from '../welcome-components/CPDuo.vue'
 import NeedAdvice from '../welcome-components/NeedAdvice.vue'
 import { checkNumberDown } from '@/libs/inputs.js'
-
+import { reusablesAssets } from '@/assets/amnyos-assets'
 
 export default {
   name: 'WelcomeUser',
   components: { CPDuo, NeedAdvice },
-  data () {
-    return {
-      selectedSolutionCategory: 0,
-      selectedAreaCode: '',
-    }
-  },
+  data () { return { selectedSolutionCategory: 0, selectedAreaCode: '', a: reusablesAssets } },
   computed: {
     partners() { return this.$api.data.partners; },
     solutionCategories() { return this.$api.data.solutions; },
     solutionCategoriesPartners() { return this.$api.solutionCategoriesPartners(this.areaCode); },
-    enabledSolutionsCategories() { return this.areaCodeFull ?
-      this.$api.enbldSltnsCtgrs(this.areaCode) : []; },
+    enabledSolutionsCategories() { return this.areaCodeFull ? this.$api.enbldSltnsCtgrs(this.areaCode) : []; },
     iAmLogged() { return this.$api.iAmLogged(); },
     iAmPartner() { return this.$api.iAmPartner(); },
     userId() { return this.$api.myUserId(); },

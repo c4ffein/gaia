@@ -54,7 +54,6 @@ export default {
 
 <style scoped lang="scss">
 .leftbar { top: 0; left: 0; height: 100%; background-color: white; display: inline-block; }
-.gaia-logo { height: 66px; display: inline-block; float: center; }
 a.gaia-button.router-link-active { background-color: white; }
 a.gaia-button:hover { filter: brightness(90%); }
 .leftbar-buttons { display: inline-block; padding-right: 5px; padding-left: 10px; width: 100%; }

@@ -5,7 +5,6 @@
       a.btn.primary.ml-5(style="visibility: hidden;") Connexion
       PartnersLogos.f-auto.mt-5.mb-5(:height="70")
       router-link.btn.primary.mr-5(:to="{ name: 'login' }" style="height: 52px;") Connexion
-    //- TODO ? Gaia : Retrouvez les partenaires qui vous accompagnent à distance
 
     //- Top left
     .absolute(style="left: 10px; top: 20px;")
@@ -25,8 +24,7 @@
     .relative.gaia-title-container
       .flex.gap-7.f-ai-center
         GaiaLogo(style="height: 180px; max-width: 50%;")
-        .t-30.t-primary.t-bold(style="max-width: 700px").
-          vous accompagne vers l’emploi
+        .t-30.t-primary.t-bold(style="max-width: 700px") {{a.accompagne}}
 
   //- Bottom left
   .absolute(style="left: 90px; bottom: -56px;")
@@ -42,24 +40,16 @@
       Dots.absolute.br1s(color="#1155AA" style="right: 0px; bottom: 0px; z-index:-3;" rL :arr="[7,12,13,16]")
 
   .subtexts
-    .t-center.t-primary.subtext1 Lauréat de l'appel à projets 100% Inclusion du Ministère du Travail
+    .t-center.t-primary.subtext1 {{a.laureat}}
     .mt-4.mb-3.bg-primary.mx-auto(style="height: 2px; width: 66px")
-    .t-center.t-primary.subtext2.mx-auto(style="max-width: 800px;") Gaïa expérimente, sur les territoires ruraux de Nouvelle Aquitaine de nouvelles approches en faveur des publics éloignés de l'emploi
+    .t-center.t-primary.subtext2.mx-auto(style="max-width: 800px;") {{a.experimente}}
 
   .flex.f-jc-center
+
     .flex.f-wrap.gap-8.mx-8(style="max-width: 900px")
-      router-link.main-card.bg-primary(:to="{ name: 'about', params: {} }")
-        .title JE DÉCOUVRE GAÏA
-        .content Vous souhaitez en savoir plus sur notre offre de service
-
-      router-link.main-card.bg-primary(:to="{ name: 'offers', params: {} }")
-        .title JE SOUHAITE ÊTRE ACCOMPAGNÉ
-        .content Vous souhaitez être mis en relation avec un partenaire ou découvrir l’offre sur votre territoire
-
-      router-link.main-card.bg-primary(:to="{ name: 'news', params: {} }")
-        .title JE SUIS L’ACTUALITÉ DE GAÏA
-        .content Vous souhaitez suivre nos évènements et retours d’expérience
-
+      router-link.main-card.bg-primary(v-for="title_content, route in a.cards" :key="route" :to="{ name: route, params: {} }")
+        .title {{title_content[0]}}
+        .content {{title_content[1]}}
 </template>
 
 <script>
@@ -70,15 +60,12 @@ import NeedAdvice from '../welcome-components/NeedAdvice.vue'
 import TriangleI from '../welcome-components/TriangleI.vue'
 import TriangleC from '../welcome-components/TriangleC.vue'
 import Dots from '../welcome-components/Dots.vue'
-
+import { welcomeAssets } from '@/assets/amnyos-assets';
 
 export default {
   name: 'Welcome',
   components: { CPDuo, NeedAdvice, GaiaLogo, PartnersLogos, TriangleI, TriangleC, Dots },
-  data () { return { imageBg: require('@/assets/fields/ales-me-m.jpg'), } },
-  computed: {
-    userId() { return this.$api.myUserId(); },  // TODO : JSON TEXTS GAIA
-  },
+  data () { return { imageBg: require('@/assets/unsplash/fields/ales-me-m.jpg'), a: welcomeAssets } },
 }
 </script>
 

@@ -14,11 +14,9 @@ import ProfilePartner from './components/profiles/ProfilePartner.vue'
 import Settings from './components/settings/Settings.vue'
 import Documents from './components/Documents.vue'
 import Form from './components/Form.vue'
-import FormAccess from './components/FormAccess.vue'
 import UserList from './components/UserList.vue'
 import Partners from './components/partners/Partners.vue'
 import Kiosks from './components/kiosks/Kiosks.vue'
-import Geozones from './components/Geozones.vue'
 import Solutions from './components/Solutions.vue'
 import RendezVous from './components/rdvs/RendezVous.vue'
 import Welcome from './components/welcomes/Welcome.vue'
@@ -53,14 +51,12 @@ const routes = [
   { name: 'documents', path: '/documents', component: Documents, meta: { requiresAuth: true } },
   // { name: 'documents', path: '/documents', component: Documents, meta: { requiresAuth: false } },
   { name: 'form', path: '/formulaire/:id', component: Form, props: true, meta: { requiresAuth: true } },
-  { name: 'form-access', path: '/acces-formulaire', component: FormAccess, meta: { requiresAuth: true } },
   { name: 'user-list', path: '/user-list/', component: UserList, props: true, meta: { requiresAuth: true } },
   { name: 'user-list-user', path: '/user-list/:id', component: UserList, props: true, meta: { requiresAuth: true } },
   // TODO : Reuse list component for partners, geozones...
   { name: 'partners', path: '/partners', component: Partners, meta: { requiresAuth: true } },
   { name: 'kiosks', path: '/kiosks', component: Kiosks, meta: { requiresAuth: true } },
   { name: 'kiosk', path: '/kiosks/:id', component: Kiosks, props: true, meta: { requiresAuth: true } },
-  { name: 'geozones', path: '/geozones', component: Geozones, meta: { requiresAuth: true } },
   { name: 'solutions', path: '/solutions', component: Solutions, meta: { requiresAuth: true } },
   { name: 'profile', path: '/profile/:id', component: ProfileUser, props: true, meta: { requiresAuth: true } },
   { name: 'partner', path: '/partner/:id', component: ProfilePartner, props: true, meta: { requiresAuth: true } },

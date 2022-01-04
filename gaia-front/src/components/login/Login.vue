@@ -11,37 +11,24 @@
     .login-field(v-if="isRegister")
       .mb-3
         .mb-3.t-primary.t-bold
-          MazSelect.mb-4(v-model="principalObjective" :options="principalObjectiveOptions"
-            placeholder="Quel est votre objectif principal en intégrant Gaïa ?"
-          )
-        .mb-3.t-primary.t-bold
-          | Quelle est aujourd’hui votre situation ?
+          MazSelect.mb-4(v-model="principalObjective" :options="principalObjectiveOptions" :placeholder="a.objectif")
+        .mb-3.t-primary.t-bold {{a.situation}}
         div
-          MazCheckbox.ml-3(v-model="rCB.chomage_plus_d_un_an")
-            | Vous êtes au chômage depuis plus d’1 an
-          MazCheckbox.ml-3(v-model="rCB.sans_diplome")
-            | Vous n’êtes pas ou peu diplômé, n’avez ni le CAP, ni le BEP, ni le Brevet des collèges
-          MazCheckbox.ml-3(v-model="rCB.travailleur_handicape_en_recherche_d_emploi")
-            | Vous êtes reconnu travailleur handicapé
-          MazCheckbox.ml-3(v-model="rCB.moins_de_26_ans_neet")
-            | Vous avez -26 ans et n’êtes ni en emploi ni en formation
-          MazCheckbox.ml-3(v-model="rCB.allocataire_rsa")
-            | Vous êtes allocataires du RSA
-          MazCheckbox.ml-3(v-model="rCB.beneficiaire_d_une_protection_internationale")
-            | Vous êtes bénéficiaire d’une protection internationale
-          MazCheckbox.ml-3(v-model="rCB.femme_seule_avec_enfant")
-            | Vous êtes une femme seule avec enfant
-          MazCheckbox.ml-3(v-model="rCB.reside_un_quartier_prioritaire")
-            | Vous résidez un quartier prioritaire
+          MazCheckbox.ml-3(v-model="rCB.chomage_plus_d_un_an") {{a.chomage}}
+          MazCheckbox.ml-3(v-model="rCB.sans_diplome") {{a.diplome}}
+          MazCheckbox.ml-3(v-model="rCB.travailleur_handicape_en_recherche_d_emploi") {{a.handicap}}
+          MazCheckbox.ml-3(v-model="rCB.moins_de_26_ans_neet") {{a.age}}
+          MazCheckbox.ml-3(v-model="rCB.allocataire_rsa") {{a.rsa}}
+          MazCheckbox.ml-3(v-model="rCB.beneficiaire_d_une_protection_internationale") {{a.protection}}
+          MazCheckbox.ml-3(v-model="rCB.femme_seule_avec_enfant") {{a.seule_enfant}}
+          MazCheckbox.ml-3(v-model="rCB.reside_un_quartier_prioritaire") {{a.quartier}}
       .mb-3(v-if="isRegistrable")
         .flex.f-jc-center
-          span.inline-flex.f-ai-center Merci d’indiquer le code postal de votre lieu d’habitation pour
-            |  vérifier votre éligibilité :
+          span.inline-flex.f-ai-center {{a.postal}}
           input.npt.pl-4.ml-4.t-15(
             style="width: 60px" :value="postalCode" @input="loadPostal" :maxlength="5" @keydown="checkNumberDown($event)"
           )
-      .t-bold.t-grey(v-if="!isRegistrable") Si vous ne remplissez aucun de ces critères nous vous invitons à vous
-        |  rapprocher de pôle emploi ou de la mission locale si vous avez moins de 26 ans.
+      .t-bold.t-grey(v-if="!isRegistrable") {{a.aucun}}
 
     //- Login fields
     div(v-if="!isRegister" style="position: relative")
@@ -53,11 +40,8 @@
         .login-tip-inside.c4-shadow
           | Vous pouvez vous connecter avec votre identifiant généralement de la forme PrénomNom,
           |  ou, si cela a été renseigné, votre numéro de téléphone ou adresse E-mail.
-    .t-bold.t-primary.login-field(v-if="isRegistrableConfirmed")
-      | Votre adresse est bien prise en charge par Gaïa, vous pouvez procéder à votre inscription.
-    .t-bold.login-field(v-if="isNotRegistrableConfirmed")
-      | Votre code postal n'est pas pris en charge par Gaïa. Nous vous invitons à vous rapprocher
-      |  de pôle emploi ou de la mission locale si vous avez moins de 25 ans.
+    .t-bold.t-primary.login-field(v-if="isRegistrableConfirmed") {{a.adresseOui}}
+    .t-bold.login-field(v-if="isNotRegistrableConfirmed") {{a.adresseNon}}
     .flex(v-if="isRegistrableConfirmed" style="position: relative")
       MazInput.maz-mb-3.login-field(
         v-model="lastnameValue" placeholder="Nom" left-icon-name="person"
@@ -143,6 +127,7 @@ import Information from '../reusables/Information'
 import DateInput from '../reusables/DateInput'
 import { checkNumberDown } from '@/libs/inputs.js'
 import * as h from '@/libs/object-helpers/object-helpers'
+import { loginAssets } from '@/assets/amnyos-assets'
 
 export default {
   name: 'Login',
@@ -157,6 +142,8 @@ export default {
   },
   data () {
     return {
+      // Assets
+      a: loginAssets,
       // Login
       loginValue: '', passwordValue: '',
       // Register

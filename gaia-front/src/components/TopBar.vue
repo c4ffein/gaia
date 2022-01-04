@@ -31,7 +31,7 @@ export default {
   name: 'TopBar',
 
   components: { PartnersLogos, GaiaLogo },
-  data: () => ({ image: require("@/assets/fields/ales-me-m.jpg"), }),
+  data: () => ({ image: require("@/assets/unsplash/fields/ales-me-m.jpg"), }),
   props: { transparent: Boolean },
   computed: {
     userId() { return this.$api.myUserId(); },

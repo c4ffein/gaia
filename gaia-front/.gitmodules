@@ -1,13 +1,13 @@
 # Monorepo deploy voodoo
-[submodule "gaia-front/src/api/libs/file-saver"]
+[submodule "gaia-front/src/libs/file-saver"]
        path = src/libs/file-saver
        url = https://github.com/c4ffein/1files-js.git
        branch = file-saver
-[submodule "gaia-front/src/api/libs/object-helpers"]
+[submodule "gaia-front/src/libs/object-helpers"]
        path = src/libs/object-helpers
        url = https://github.com/c4ffein/1files-js.git
        branch = object-helpers
-[submodule "gaia-front/src/api/libs/jwt-decode"]
+[submodule "gaia-front/src/libs/jwt-decode"]
        path = src/libs/jwt-decode
        url = https://github.com/c4ffein/1files-js.git
        branch = jwt-decode

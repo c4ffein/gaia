@@ -41,10 +41,6 @@
                 .t-left.t-darker.ml-3(v-if="isYear(item) || isLongInput(item)") {{item.title}} :
                   .t-primary.pre-wrap  {{getValue(item)}}
 
-                ScanOrDownload.mb-4(v-if="isScanOrDownload(item)")
-
-                PrintOrSave.mb-4(v-if="isPrintOrSave(item)")
-
             div(v-for="item in formPage" v-bind:key="item.id" v-if="!isFinal")
               div(v-if="itemAvailable(item)")
                 .t-left.t-bold.t-primary.mt-5.mb-2(v-if="isTitle(item)") {{item.title}}
@@ -91,9 +87,6 @@
                     :value="getValue(item)" @input="setValue(item, $event.target.value)"
                   )
 
-                ScanOrDownload.mb-4(v-if="isScanOrDownload(item)")
-
-                PrintOrSave.mb-4(v-if="isPrintOrSave(item)")
 
         .flex(style="justify-content: space-between; padding-top: 10px;")
           .maz-flex-left.maz-flex.maz-mt-2.ml-5
@@ -130,8 +123,6 @@ import Confirm from './reusables/Confirm'
 import Information from './reusables/Information'
 import DateInput from './reusables/DateInput'
 import YearInput from './reusables/YearInput'
-import PrintOrSave from './PrintOrSave'
-import ScanOrDownload from './ScanOrDownload'
 import { dashDateToSlashDate } from '@/libs/inputs'
 import { prettyDate } from '@/libs/drftimestamp'
 
@@ -143,7 +134,7 @@ export default {
   props: { id: String },
   components: {
     MazTabsContent, MazTabsContentItem, MazStepper, MazCheckbox, MazSelect, MazBtn, MazBtnGroup,
-    PrintOrSave, ScanOrDownload, DateInput, YearInput, Confirm, Modal, Information
+    DateInput, YearInput, Confirm, Modal, Information
   },
   data() { return { stepper: 1, dS: {}, m: {}, user: {}, showConfirm: false, showError: false, showSaved: false }; },
   methods: {
@@ -158,8 +149,6 @@ export default {
     isInput(item) { return item.type==='input'; },
     isShortInput(item) { return item.type==='input' && !(item.style==='long'); },
     isLongInput(item) { return item.type==='input' && item.style==='long'; },
-    isScanOrDownload(item) { return item.type==='scanordownload'; },
-    isPrintOrSave(item) { return item.type==='printorsave'; },
     itemAvailable(item) { if ('conditions' in item) return this.validateConditions(item.conditions); return true; },
     itemAvlblUsr(item) { return this.itemAvailable(item) && this.notPartnerOnly(item); },
     notPartnerOnly(item) { return !item.conditions || !item.conditions.partner_only; },

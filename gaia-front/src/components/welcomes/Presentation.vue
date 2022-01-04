@@ -3,22 +3,17 @@ div
   .ppt-bg(style="width: 100%; position: relative; top: -30px; margin-top: 0;")
     .bg(:style="'background-image: url('+imagebg+');'")
     .content.px-5.py-5
-
       .t-white.t-bold.t-center.mx-8.mb-6(style="font-size: 36px; margin-top: 20px;")
-        .nonshlagged L'accompagnement innovant en faveur des&nbsp;territoires&nbsp;ruraux
-        .shlagged(style="font-size: 28px;") L'accompagnement innovant en faveur des territoires ruraux
+        .nonshlagged {{a.p0.title}}
+        .shlagged(style="font-size: 28px;") {{a.p0.titleS}}
       .flex.mb-4.f-screen-col-800(style="gap: calc(40px + 5%);")
         div(style="flex: 1 1 0px;")
-          .t-bold.t-18.t-center.mb-5 L'ambition du projet
+          .t-bold.t-18.t-center.mb-5 {{a.p0.title1}}
           ul.mt-3
-            li Une expérimentation sur 20 territoires en Nouvelle-Aquitaine jusqu’en juillet 2023
-            li Accompagner 600 parcours Gaïa (publics : jeunes -25 ans, demandeurs d'emploi longue durée, publics en situation d’handicap...)
-            li Maximiser l'impact social de la commande publique
-            li Compléter l’offre d’accompagnement socio-professionnel du territoire (parcours et bornes numériques)
-
+            li(v-for="s in a.p0.c1") {{s}}
         div(style="flex: 1 1 0px;")
           .whittex
-            .t-bold.t-18.t-center.mb-5 Un consortium d’acteurs engagés
+            .t-bold.t-18.t-center.mb-5 {{a.p0.title2}}
             ul
               li.
                 #[a(target="_blank" href="https://www.adie.org/") ADIE],
@@ -62,7 +57,7 @@ div
             .t-18 Innover dans des parcours d'accompagnement à la création d'entreprise (consolidation de fonds
               |  propres) auprès d'EITI (entreprises d’insertion par le travail indépendant).
 
-      flex.f-jc-center
+      .flex.f-jc-center
         router-link.btn.white.outline.block.mt-5.mx-auto(style="width: calc(200px + 20%)" :to="{ name: 'home', params: {} }") Accéder à Gaïa
 
 
@@ -71,208 +66,78 @@ div
       .ppt-head
         .bg(:style="'background-image: url('+image1+');'")
         .content
-          //----------------------------------------------------------------------
-          .title L'accompagnement à la formation en situation de travail
-          //----------------------------------------------------------------------
-          .subtitle
-            | GAÏA propose au Service Public de l’Emploi et aux structures d'insertion  de  maximiser  les  mises  en
-            | situation de travail
-            | pour favoriser l’orientation professionnelle, l’accès ou le retour à l’emploi de leurs publics
+          .title {{a.p1.title}}
+          .subtitle {{a.p1.subtitle}}
           .flexer
-            .flexed
-              | Des parcours de formation en situation de travail sur mesure&nbsp;: FEST (formation en situation de travail) et AFEST (action de formation en situation de travail)
-            .flexed
-              | Une méthode innovante permettant de développer l’employabilité par l’acquisition, en milieu de travail,
-              | de compétences transversales et professionnelles
-            .flexed
-              | Une équipe experte de la formation professionnelle et un animateur GAÏA à chaque étape du parcours
-      //---------------------------------------------------------------
-
+            .flexed(v-for="s in a.p1.subsubtitles") {{s}}
       div(style="display: grid; grid-gap: 0px 60px; grid-auto-columns: 1fr;")
         .t1
           .ppt-stand(style="min-height: 50px;")
             .bg(:style="'background-image: url('+image2+');'")
             .content.flex.f-ai-center(style="height: 100%;")
-              .t-bold
-                | La valeur ajoutée des parcours GAÏA&nbsp;: #[br]
-                | muscler les dispositifs existants pour booster l’employabilité des demandeurs d'emploi
-
+              .t-bold.pre-wrap {{a.p1.c[0][0]}}
         .b1
-          .pl-4.pr-4(style="flex: 0 0 50%; box-sizing: border-box;")
-            .t-curr.t-bold Pour le demandeur d'emploi
+          .pl-4.pr-4(v-for="i in a.p1.c[0][1]" style="flex: 0 0 50%; box-sizing: border-box;")
+            .t-curr.t-bold {{i[0]}}
             ul
-              li.mb-3 Identifier et attester de compétences transversales
-              li.mb-3 Valoriser au maximum son temps d’immersion dans une structure
-              li.mb-3 Retrouver confiance et envie pour la suite de son parcours
-          .pl-4.pr-4(style="flex: 0 0 50%; box-sizing: border-box;")
-            .t-curr.t-bold Pour les entreprises
-            ul
-              li.mb-3 Recruter autrement&nbsp;: être sensibilisé à la formation ensituation de travail
-              li.mb-3 Pour une petite structure ou association&nbsp;: formaliser des activités et se professionnaliser
-          .pl-4.pr-4(style="flex: 0 0 50%; box-sizing: border-box;")
-            .t-curr.t-bold Pour le prescripteur
-            ul
-              li.mb-3 Obtenir des éléments complémentaires sur lepositionnement du demandeur d'emploi
-              li.mb-3 Renforcer son action sur le volet accompagnement
-              li.mb-3 Expérimenter de nouvelles pratiques
-
-
+              li.mb-3(v-for="i in i[1]") {{i}}
         .t2
           .ppt-stand
             .bg(:style="'background-image: url('+image3+');'")
             .content.flex.f-ai-center(style="height: 100%;")
-              .t-bold Des parcours coordonnés par GAÏA, crées sur-mesure par nos experts en formation et mis
-                |  en œuvre en collaboration avec les prescripteurs
-        //-.b2.pr-4
-          div(style="margin-left: 0%;")
-            .t-curr.t-bold Le prescripteur
-            ul.mt-2
-             li Repère l'entreprise et le demandeur d'emploi
-
-          div(style="margin-left: 10%; max-width: 70%;")
-            .t-curr.t-bold GAÏA
-            ul.mt-2
-              li Désigne un compagnon référent de parcours
-              li Définit le référentiel de formation en situation de travail
-
-          div(style="margin-left: 20%; max-width: 70%;")
-            .t-curr.t-bold Le prescripteur
-            ul.mt-2
-              li Formalise la convention selon son circuit habituel
-
-          div(style="margin-left: 30%; max-width: 70%;")
-            .t-curr.t-bold GAÏA
-            ul.mt-2
-              li Accueille, oriente et suit le parcours du demandeur d'emploi
-              li Evalue et atteste les compétences transversales acquises
+              .t-bold {{a.p1.c[1][0]}}
+        //- div(style="margin-left: 0-10-20-30%; max-width: 70%;")
         .b2
-          div(style="margin-left: 0%;")
-            .t-curr.t-bold Le prescripteur
+          div(v-for="i in a.p1.c[1][1]")
+            .t-curr.t-bold {{i[0]}}
             ul.mt-2
-             li Repère l'entreprise et le demandeur d'emploi
-
-          div
-            .t-curr.t-bold GAÏA
-            ul.mt-2
-              li Désigne un compagnon référent de parcours
-              li Définit le référentiel de formation en situation de travail
-
-          div
-            .t-curr.t-bold Le prescripteur
-            ul.mt-2
-              li Formalise la convention selon son circuit habituel
-
-          div
-            .t-curr.t-bold GAÏA
-            ul.mt-2
-              li Accueille, oriente et suit le parcours du demandeur d'emploi
-              li Evalue et atteste les compétences transversales acquises
+              li(v-for="i in i[1]") {{i}}
 
     //--------------------------------------------------------------------------
     .ppt-2#gaia-about-section-2
       .ppt-head
         .bg(:style="'background-image: url('+image2+');'")
         .content
-          //----------------------------------------------------------------------
-          .title Le développement de la clause sociale dans les marchés publics
-          //----------------------------------------------------------------------
-          .subtitle GAÏA accompagne les collectivités dans la mise en oeuvre d'une stratégie d'achat plus responsable
+          .title {{a.p2.title}}
+          .subtitle {{a.p2.subtitle}}
           .flexer
-            .flexed
-              | Un accompagnement technique et juridique dans la mise en oeuvre de clauses sociales
-            .flexed
-              | Des approches innovantes qui répondent aux enjeux des territoires ruraux et de leurs publics
-            .flexed
-              | Mobiliser l'écostystème local pour booster l'impact social sur le territoire
-      //-----------------------------------------------------------------
-
+            .flexed(v-for="s in a.p2.subsubtitles") {{s}}
       .ppt-stand
         .bg(:style="'background-image: url('+image1+');'")
         .content
-          .t-bold Ambitions territoriales
-          div
-            | Un des objectif de l'expérimentation GAÏA est de créer une synergie via la
-            | clause d'insertion entre les acteurs du territoire et d'expérimenter des actions innovantes.
-
+          .t-bold {{a.p2.sh[0]}}
+          div {{a.p2.sh[1]}}
       .flex.f-screen-col-900.f-wrap.gap-8(style="max-width: 100%;")
-        div(style="flex: 1 1 0px;")
-          .t-curr.t-bold Pour la collectivité
+        div(style="flex: 1 1 0px;" v-for="c in a.p2.c")
+          .t-curr.t-bold {{c[0]}}
           ul
-            li Développer l’emploi local
-            li Renforcer le travail et le partenariat entre les SIAE (structures d’insertion par l’activité économique) et les collectivités
-            li Permettre aux demandeurs d’emploi d’accéder à un emploi sur leur territoire
-            li Aider les entreprises du territoire à recruter
-            li Apporter des réponses spécifiques aux petits marchés des territoires ruraux
-
-        div(style="flex: 1 1 0px;")
-          .t-curr.t-bold Pour les entreprises
-          ul
-            li Recruter localement
-            li Echanger avec le SPE (service public de l’emploi) sur ses besoins en main d'œuvre
-            li Accéder aux marchés publics
-            li Développer sa RSE (responsabilité sociétale des entreprises) et la mettre en avant
-
-        div(style="flex: 1 1 0px;")
-          .t-curr.t-bold Pour les demandeurs d'emploi
-          ul
-            li Confirmer son projet professionnel
-            li Evaluer ses compétences sur un métier précis
-            li Rencontrer une entreprise locale
-            li Accéder à un emploi ou une formation
-            li Reprendre confiance en soi
-            li Acquérir de nouvelles compétences
-
+            li(v-for="i in c[1]") {{ i }}
     //--------------------------------------------------------------------------
     .ppt-3#gaia-about-section-3
       .ppt-head
         .bg(:style="'background-image: url('+image3+');'")
         .content
-          //----------------------------------------------------------------------
-          .title L'accompagnement à la création d'entreprise
-          //----------------------------------------------------------------------
-          .subtitle GAÏA accompagne les parcours des créateurs d'entreprises éloignés de l'emploi et en insertion
+          .title {{a.p3.title}}
+          .subtitle {{a.p3.subtitle}}
           .flexer
-            .flexed
-              | Dispositifs de consolidation de fonds propres pour les créateurs éloignés de l'emploi
-            .flexed
-              | Actions innovantes à destination des créateurs d'EITI (Entreprise d’Insertion par le Travail Indépendant)
-            .flexed
-              | Un partenariat privilégié avec l'ADIE et les collectivités locales
-      //-----------------------------------------------------------------
-
+            .flexed(v-for="s in a.p3.subsubtitles") {{s}}
       div(style="display: grid; grid-gap: 0px 60px; grid-auto-columns: 1fr;")
         .ppt-stand.t1
           .bg(:style="'background-image: url('+image2+');'")
-          .content.t-bold
-            | Accompagnement des travailleurs indépendants via l'Entreprise d’Insertion par le Travail Indépendant (EITI)
+          .content.t-bold {{a.p3.c1.t}}
         ul.b1
-          li
-            .t-curr.t-bold  Appui Création EiTI
-            div Phase amont&nbsp;: préparation intégration
-          li
-            .t-curr.t-bold  Accompagnement EiTI
-            ul.s
-              li Demande de conventionnement
-              li Outillage et process administratifs
-              li Conseils juridiques...
-          li
-            .t-curr.t-bold  Aide à la sécurisation des activités
-            div Appui sur les marchés publics
+          li(v-for="s in a.p3.c1.c")
+            .t-curr.t-bold {{s[0]}}
+            ul.s(v-if="Array.isArray(s[1])")
+              li(v-for="s in s[1]") {{s}}
+            div(v-else) {{s[1]}}
         .ppt-stand.t2
           .bg(:style="'background-image: url('+image1+');'")
-          .content.t-bold
-            | Sécuriser les parcours de création d'entreprise en abondant les fonds propres pour les micro- crédits
+          .content.t-bold {{a.p3.c2.t}}
         ul.b2
-          li
-            .t-curr.t-bold Venir en complément de l’offre de service de l’ADIE sur le volet financement
-            div GAÏA finance une prime de 1000 euros pour les microcrédits accordés par l'ADIE
-          li
-            .t-curr.t-bold Soutenir les porteurs de projet n'ayant pas accès au crédit bancaire classique
-            div Sécuriser la prise de risque liée à l'emprunt pour les publics éloignés de l'emploi
-          li
-            .t-curr.t-bold Encourager la création d'entreprise auprès des publics jeunes
-            div Disposer de 6 à 8 mois mois (rémunéré pour les -30 ans) pour affiner son projet de création
-
+          li(v-for="s in a.p3.c2.c")
+            .t-curr.t-bold {{s[0]}}
+            div {{s[1]}}
       //-----------------------------------------------------------------
 
   .flex.f-ai-center
@@ -280,21 +145,18 @@ div
 </template>
 
 <script>
+import { presentationAssets } from '@/assets/amnyos-assets.js'
+
 export default {
   name: 'Presentation',
   data () {
     return {
-      imagebg: require("@/assets/fields/ales-me-m.jpg"),
-      image1: require("@/assets/about-s/KdeqA3aTnBY.jpg"),
-      image2: require("@/assets/about-s/handshake.jpg"),
-      image3: require("@/assets/about-s/5fNmWej4tAA.jpg"),
-      image4: require("@/assets/about-s/6797d8d5f89.jpg"),
-      postalResetter: null,
-      lstRsttrId: 0,
+      imagebg: require("@/assets/unsplash/fields/ales-me-m.jpg"),
+      image1: require("@/assets/unsplash/about-s/KdeqA3aTnBY.jpg"),
+      image2: require("@/assets/unsplash/about-s/handshake.jpg"),
+      image3: require("@/assets/unsplash/about-s/5fNmWej4tAA.jpg"),
+      a: presentationAssets,
     }
-  },
-  computed: {
-    partners() { return this.$api.data.partners; },  // TODO : Use with texts as external, "All texts in this json property of... same for gaia logo csv?"
   },
   methods: { scrollToSection(n) {
       document.getElementById(`gaia-about-section-${n}`)?.scrollIntoView({behavior: "smooth", inline: "nearest"});

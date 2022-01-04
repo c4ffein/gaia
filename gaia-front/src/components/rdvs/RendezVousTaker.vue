@@ -1,7 +1,6 @@
 <template lang="pug">
 div
-  .t-bold.t-primary.t-18.mb-3(v-if="!iAmPartner")
-    | Découvrez l’offre d’accompagnement de nos partenaires et prenez un rendez-vous avec un conseiller
+  .t-bold.t-primary.t-18.mb-3(v-if="!iAmPartner") {{a.discover}}
   div(v-if="!postalCodeValid && !iAmPartner")
     .t-bold Code postal non reconnu.
       br
@@ -59,6 +58,7 @@ import UserFind from '../reusables/UserFind.vue'
 import { prettyTime, prettyDate } from '@/libs/drftimestamp'
 import { sMarked } from '@/libs/inputs'
 
+import { reusablesAssets } from '@/assets/amnyos-assets'
 
 export default {
   name: 'RendezVous',
@@ -75,6 +75,7 @@ export default {
     willUserObject: null,
     errorMessage: '',
     acceptRecontact: true,
+    a: reusablesAssets,
   }),
   computed: {
     iAmLogged() { return this.$api.iAmLogged(); },

@@ -94,7 +94,7 @@ export default {
     ppIcon() { return require('@/assets/material-person-18dp.svg'); },
     ppDefault() { return (this.dS && !this.dS?.profile_picture) ? this.ppIcon : whiteImgSrc; },
     pp() { return this.$api.files(this.dS?.profile_picture)?.b64 || this.ppDefault; },
-    bpWp() { return require('@/assets/wall-pictures-s/john-ko-0C6Ep1n77l8-unsplash.jpg'); },
+    bpWp() { return require('@/assets/unsplash/wall-pictures-s/john-ko-0C6Ep1n77l8-unsplash.jpg'); },
     bpDefault() { return (this.dS && !this.dS.banner_picture) ? this.bpWp : whiteImgSrc; },
     bp() { return this.$api.files(this.dS?.banner_picture)?.b64 || this.bpDefault; },
     personalData() { return this.showedProfile?.forms || []; },

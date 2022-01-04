@@ -1,8 +1,8 @@
 <template lang="pug">
   .cp-duo(:class="(reversed ? 'reversed' : 'false') + (margined ? '' : ' no-margin')")
     .img-container
-      img.i-cover.absolute(v-if="!reversed" src="@/assets/workers/johan-mouchet.jpg" alt="man working" style="object-position: 50% 13%;")
-      img.i-cover.absolute(v-if="reversed" src="@/assets/workers/handshake.jpg" alt="handshake" style="object-position: 50% 75%;")
+      img.i-cover.absolute(v-if="!reversed" src="@/assets/unsplash/workers/johan-mouchet.jpg" alt="man working" style="object-position: 50% 13%;")
+      img.i-cover.absolute(v-if="reversed" src="@/assets/unsplash/workers/handshake.jpg" alt="handshake" style="object-position: 50% 75%;")
     div
       .pre-wrap
         .t-25.t-primary.t-bold.mb-5(title) {{title}}
