@@ -4,16 +4,16 @@ div
     .bg(:style="'background-image: url('+imagebg+');'")
     .content.px-5.py-5
       .t-white.t-bold.t-center.mx-8.mb-6(style="font-size: 36px; margin-top: 20px;")
-        .nonshlagged {{a.p0.title}}
-        .shlagged(style="font-size: 28px;") {{a.p0.titleS}}
+        .nonshlagged {{a.pt.title}}
+        .shlagged(style="font-size: 28px;") {{a.pt.titleS}}
       .flex.mb-4.f-screen-col-800(style="gap: calc(40px + 5%);")
         div(style="flex: 1 1 0px;")
-          .t-bold.t-18.t-center.mb-5 {{a.p0.title1}}
+          .t-bold.t-18.t-center.mb-5 {{a.pt.title1}}
           ul.mt-3
-            li(v-for="s in a.p0.c1") {{s}}
+            li(v-for="s in a.pt.c1") {{s}}
         div(style="flex: 1 1 0px;")
           .whittex
-            .t-bold.t-18.t-center.mb-5 {{a.p0.title2}}
+            .t-bold.t-18.t-center.mb-5 {{a.pt.title2}}
             ul
               li.
                 #[a(target="_blank" href="https://www.adie.org/") ADIE],
@@ -35,27 +35,13 @@ div
 
   .pres-content
     .ppt-0
-      .t-curr-title-1.mb-5.t-center
-        | L'offre de service GAÏA, c'est accompagner les publics vers l'emploi via&nbsp;:
+      .t-curr-title-1.mb-5.t-center {{a.p0.title}}
       .flex.f-jc-center.gap-5.f-screen-col-900
-        .card.ppt-card.ppt-1(style="width: calc(200px + 15%);" @click="scrollToSection(1)")
-          .bg(:style="'background-image: url('+image1+');'")
+        .card.ppt-card(v-for="c, n in a.p0.c" style="width: calc(200px + 15%);" @click="scrollToSection(n+1)" :class="'ppt-'+(n+1)")
+          .bg(:style="'background-image: url('+getImage(n+1)+');'")
           .content.px-6.py-6
-            .t-20.t-bold.mb-4 L'accompagnement à la Formation en Situation de Travail
-            .t-18 Renforcer les dispositifs d'immersion ou d'insertion existants par des FEST (formation en situation de travail) ou des AFEST (action de formation en situation de travail) pour accroître l'employabilité des publics.
-
-        .card.ppt-card.ppt-2(style="width: calc(200px + 15%);" @click="scrollToSection(2)")
-          .bg(:style="'background-image: url('+image2+');'")
-          .content.px-6.py-6
-            .t-20.t-bold.mb-4 Le développement de la clause sociale dans les marchés publics
-            .t-18 Impulser des pratiques innovantes sur les territoires enfaveur des publics éloignés de l'emploi.
-
-        .card.ppt-card.ppt-3(style="width: calc(200px + 15%);" @click="scrollToSection(3)")
-          .bg(:style="'background-image: url('+image3+');'")
-          .content.px-6.py-6
-            .t-20.t-bold.mb-4 L'accompagnement à la création d'entreprise
-            .t-18 Innover dans des parcours d'accompagnement à la création d'entreprise (consolidation de fonds
-              |  propres) auprès d'EITI (entreprises d’insertion par le travail indépendant).
+            .t-20.t-bold.mb-4 {{c[0]}}
+            .t-18 {{c[1]}}
 
       .flex.f-jc-center
         router-link.btn.white.outline.block.mt-5.mx-auto(style="width: calc(200px + 20%)" :to="{ name: 'home', params: {} }") Accéder à Gaïa
@@ -158,9 +144,12 @@ export default {
       a: presentationAssets,
     }
   },
-  methods: { scrollToSection(n) {
+  methods: {
+    scrollToSection(n) {
       document.getElementById(`gaia-about-section-${n}`)?.scrollIntoView({behavior: "smooth", inline: "nearest"});
-  } }
+    },
+    getImage(n) { return [this.image1, this.image2, this.image3][n-1]; }
+  }
 }
 </script>
 

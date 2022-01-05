@@ -1,5 +1,5 @@
 const presentationAssets = {
-  p0: {
+  pt: {
     title: 'L\'accompagnement innovant en faveur des\xa0territoires\xa0ruraux',
     titleS: 'L\'accompagnement innovant en faveur des territoires ruraux',
     title1: 'L\'ambition du projet',
@@ -10,6 +10,14 @@ const presentationAssets = {
       'Compléter l’offre d’accompagnement socio-professionnel du territoire (parcours et bornes numériques)',
     ],
     title2: 'Un consortium d’acteurs engagés'
+  },
+  p0: {
+    title: 'L\'offre de service GAÏA, c\'est accompagner les publics vers l\'emploi via\xa0:',
+    c: [
+      ['L\'accompagnement à la Formation en Situation de Travail', 'Renforcer les dispositifs d\'immersion ou d\'insertion existants par des FEST (formation en situation de travail) ou des AFEST (action de formation en situation de travail) pour accroître l\'employabilité des publics.'],
+      ['Le développement de la clause sociale dans les marchés publics', 'Impulser des pratiques innovantes sur les territoires enfaveur des publics éloignés de l\'emploi.'],
+      ['L\'accompagnement à la création d\'entreprise', 'Innover dans des parcours d\'accompagnement à la création d\'entreprise (consolidation de fonds propres) auprès d\'EITI (entreprises d’insertion par le travail indépendant).'],
+    ]
   },
   p1: {
     title: 'L\'accompagnement à la formation en situation de travail',
